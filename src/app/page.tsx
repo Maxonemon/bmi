@@ -42,6 +42,7 @@ export default function Home() {
             id="weight"
             value={[weight]}
             max={300}
+            disabled={isLoading}
             step={1}
             onValueChange={handleWeightChange}
           />
