@@ -19,56 +19,59 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col flex-1 items-center">
-      <div className="flex flex-col items-center my-10 text-teal-50 w-full">
-        <Label htmlFor="height" className="mb-2 text-xl">
-          Height: {height} cm
-        </Label>
-        <Slider
-          id="height"
-          value={[height]}
-          max={300}
-          step={1}
-          disabled={isLoading}
-          onValueChange={handleHeightChange}
-        />
-      </div>
-      <div className="flex flex-col items-center my-5 text-teal-50 w-full mb-10">
-        <Label htmlFor="weight" className="mb-2 text-xl">
-          Weight: {weight} kg
-        </Label>
-        <Slider
-          id="weight"
-          value={[weight]}
-          max={300}
-          step={1}
-          onValueChange={handleWeightChange}
-        />
-      </div>
-      {!isLoading && (
-        <Button
-          disabled={isLoading}
-          onClick={() => {
-            setIsLoading(true);
-          }}
-        >
-          Calculate your bmi
-        </Button>
-      )}
-      {isLoading && (
-        <Button
-          disabled={!isLoading}
-          onClick={() => {
-            setWeight(80);
-            setHeight(170);
-            setIsLoading(false);
-          }}
-        >
-          Reset
-        </Button>
-      )}
+    <main className="flex flex-col flex-1 items-center 2xl:mt-10 w-full h-full">
+      <div className="w-full flex flex-col items-center justify-center h-full my-auto -mt-1">
+        <div className="flex flex-col items-center my-10 text-teal-50 w-full md:w-[80%] lg:w-[65%] lg:text-3xl ">
+          <Label htmlFor="height" className="mb-2 text-xl 2xl:text-3xl">
+            Height: {height} cm
+          </Label>
+          <Slider
+            id="height"
+            value={[height]}
+            max={300}
+            step={1}
+            disabled={isLoading}
+            onValueChange={handleHeightChange}
+          />
+        </div>
+        <div className="flex flex-col items-center my-10 text-teal-50 w-full md:w-[80%] lg:w-[65%] lg:text-3xl ">
+          <Label htmlFor="height" className="mb-2 text-xl 2xl:text-3xl">
+            Weight: {weight} kg
+          </Label>
+          <Slider
+            id="weight"
+            value={[weight]}
+            max={300}
+            step={1}
+            onValueChange={handleWeightChange}
+          />
+        </div>
 
-      {isLoading && <h2 className="text-teal-50 mt-10 text-2xl">{bmi}</h2>}
+        {!isLoading && (
+          <Button
+            disabled={isLoading}
+            onClick={() => {
+              setIsLoading(true);
+            }}
+          >
+            Calculate your bmi
+          </Button>
+        )}
+        {isLoading && (
+          <Button
+            disabled={!isLoading}
+            onClick={() => {
+              setWeight(80);
+              setHeight(170);
+              setIsLoading(false);
+            }}
+          >
+            Reset
+          </Button>
+        )}
+
+        {isLoading && <h2 className="text-teal-50 mt-10 text-2xl">{bmi}</h2>}
+      </div>
     </main>
   );
 }
