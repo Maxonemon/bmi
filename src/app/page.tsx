@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { BMI } from "@/lib/constants";
 import { useState } from "react";
+
 import GaugeChart from "react-gauge-chart";
 
 export default function Home() {
